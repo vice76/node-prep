@@ -1,4 +1,4 @@
 import open from "open";
 
-open("www.google.com");
+open("https://www.urbanclap.com");
 //can open tab using this
