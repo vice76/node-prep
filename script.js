@@ -4,3 +4,5 @@
 //yeh btaeyega script kaise run hogi
 
 console.log("hello world");
+
+console.log(__dirname);
