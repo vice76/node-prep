@@ -1,9 +1,10 @@
 import express from "express";
-import bodyParser from "body-parser";
+import { json, urlencoded } from "body-parser";
 //hoew to use body-parser using es6 module ,gives error
 
 const app = express();
-app.use(bodyParser.json());
+
+//console.log("hello");
 
 app.get("/", (req, res) => {
   res.send({ message: "ok" });
