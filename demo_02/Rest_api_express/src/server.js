@@ -1,8 +1,9 @@
 import express from "express";
-const 
-//hoew to use body-parser using es6 module ,gives error 
+import bodyParser from "body-parser";
+//hoew to use body-parser using es6 module ,gives error
 
 const app = express();
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send({ message: "ok" });
