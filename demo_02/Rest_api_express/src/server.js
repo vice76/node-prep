@@ -28,13 +28,35 @@ app.post("/", (req, res) => {
   res.send({ message: "OK POST" });
 });
 
-router.get("/post", (req, res) => {
-  res.send({ message: "Router OK" });
-});
+// router.get("/post", (req, res) => {
+//   res.send({ message: "Router OK" });
+// });
 
-router.post("/post", (req, res) => {
-  res.send({ message: "OK" });
-});
+// router.post("/post", (req, res) => {
+//   res.send({ message: "OK" });
+// });
+
+router
+  .route("/post")
+  .get((req, res) => {
+    res.send({ message: "Router OK get" });
+  })
+  .post((req, res) => {
+    res.send({ message: "Router OK POST" });
+  });
+
+router
+  .route("/post/:id/:nums")
+  .put((req, res) => {
+    console.log(req.params);
+    res.send({ message: "Router OK PUT" });
+  })
+  .patch((req, res) => {
+    res.send({ message: "Router OK Patch" });
+  })
+  .delete((req, res) => {
+    res.send({ message: "Router OK delete" });
+  });
 
 export const start = () => {
   app.listen(3000, () => {
