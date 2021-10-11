@@ -3,6 +3,8 @@ import { json, urlencoded } from "body-parser";
 //hoew to use body-parser using es6 module ,gives error
 
 const app = express();
+const router = express.Router();
+
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
@@ -14,6 +16,8 @@ const customLogger = (req, res, next) => {
   next();
 };
 
+app.use("/api/v1", router);
+
 app.get("/", customLogger, (req, res) => {
   console.log(req.body);
   res.send({ message: "OK GET" });
@@ -22,6 +26,14 @@ app.get("/", customLogger, (req, res) => {
 app.post("/", (req, res) => {
   console.log(req.body);
   res.send({ message: "OK POST" });
+});
+
+router.get("/post", (req, res) => {
+  res.send({ message: "Router OK" });
+});
+
+router.post("/post", (req, res) => {
+  res.send({ message: "OK" });
 });
 
 export const start = () => {
